@@ -14,7 +14,8 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 
 $app->get('/{desired_image_width}/{desired_image_height}', function($desired_image_width, $desired_image_height) use($app) {
 
-    die('qui');
+    echo phpinfo();
+    die();
 
     $source_path = 'public/1.jpg';
     /*
