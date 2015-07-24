@@ -12,9 +12,15 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 
 // Our web handlers
 
-$app->get('/{desired_image_width}/{desired_image_height}', function($desired_image_width, $desired_image_height) use($app) {
+$app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', function($desired_image_width, $desired_image_height, $custom_value) use($app) {
 
-    $source_path = 'public/'.rand(1, 4).'.jpg';
+    $folder = '';
+
+    if($custom_value == 'mani') {
+        $folder = 'mani/';
+    }
+
+    $source_path = 'public/'.$folder.rand(1, 4).'.jpg';
     /*
      * Add file validation code here
      */
@@ -86,7 +92,7 @@ $app->get('/{desired_image_width}/{desired_image_height}', function($desired_ima
     header('Content-type: image/jpeg');
     imagejpeg($desired_gdim);
 die();
-});
+})->value('custom_value', false);
 
 
 
