@@ -12,11 +12,9 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 
 // Our web handlers
 
-$app->get('/info', function() use($app) {
-    echo phpinfo();
-});
-
 $app->get('/{desired_image_width}/{desired_image_height}', function($desired_image_width, $desired_image_height) use($app) {
+
+    die('qui');
 
     $source_path = 'public/1.jpg';
     /*
