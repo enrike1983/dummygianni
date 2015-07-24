@@ -2,7 +2,8 @@
   "require" : {
     "silex/silex": "~1.1",
     "monolog/monolog": "~1.7",
-    "ext-gd": "*"
+    "ext-gd": "*",
+    "symfony/finder": "~2.7"
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"

@@ -14,6 +14,7 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 
 $app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', function($desired_image_width, $desired_image_height, $custom_value) use($app) {
 
+    /**sostituire con Finder di symfony **/
     $folder = '';
 
     if($custom_value == 'mani') {
@@ -21,6 +22,8 @@ $app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', functi
     }
 
     $source_path = 'public/'.$folder.rand(1, 4).'.jpg';
+    /**sostituire con Finder di symfony **/
+
     /*
      * Add file validation code here
      */
