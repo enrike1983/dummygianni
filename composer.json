@@ -1,10 +1,10 @@
 {
   "require" : {
     "silex/silex": "~1.1",
-    "monolog/monolog": "~1.7"
+    "monolog/monolog": "~1.7",
+    "ext-gd": "*"
   },
   "require-dev": {
-    "heroku/heroku-buildpack-php": "*",
-    "ext-xsl": "*"
+    "heroku/heroku-buildpack-php": "*"
   }
 }
