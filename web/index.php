@@ -14,17 +14,11 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 
 $app->get('/{desired_image_width}/{desired_image_height}', function($desired_image_width, $desired_image_height) use($app) {
 
-    $source_path = 'public/1.jpg';
+    $source_path = 'public/'.rand(1, 4).'.jpg';
     /*
      * Add file validation code here
      */
     list($source_width, $source_height, $source_type) = getimagesize($source_path);
-
-    //fix in caso di immagine troppo grande
-    if($source_width < $desired_image_width || $source_height < $desired_image_height) {
-        $desired_image_width = $source_width;
-        $desired_image_height = $source_height;
-    }
 
     switch ($source_type) {
         case IMAGETYPE_GIF:
