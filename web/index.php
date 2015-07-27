@@ -24,7 +24,7 @@ $app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', functi
         case 'merda':
             $finder->name('*_merda.jpg');
             break;
-    }
+    } 
 
 
 
