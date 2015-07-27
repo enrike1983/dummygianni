@@ -17,9 +17,16 @@ $app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', functi
     $public_folder = 'public';
     $finder = new Finder();
 
-    if($custom_value == 'mani') {
-        $finder->name('*_mani.jpg');
+    switch($custom_value) {
+        case 'mani':
+            $finder->name('*_mani.jpg');
+            break;
+        case 'merda':
+            $finder->name('*_merda.jpg');
+            break;
     }
+
+
 
     $finder->files()->in($public_folder);
 
