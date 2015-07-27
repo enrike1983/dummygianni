@@ -25,7 +25,7 @@ $app->get('/', function () use ($app) {
 
 $app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', function($desired_image_width, $desired_image_height, $custom_value) use($app) {
 
-    $public_folder = 'public';
+    $public_folder = 'public/dummy-img';
     $finder = new Finder();
 
     switch($custom_value) {
@@ -35,7 +35,7 @@ $app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', functi
         case 'merda':
             $finder->name('*_merda.jpg');
             break;
-    } 
+    }
 
 
 
