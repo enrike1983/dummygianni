@@ -11,7 +11,7 @@ $app['debug'] = true;
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => 'php://stderr',
 ));
-
+ 
 $app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', function($desired_image_width, $desired_image_height, $custom_value) use($app) {
 
     $public_folder = 'public';
