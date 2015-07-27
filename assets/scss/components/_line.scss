@@ -1,0 +1,32 @@
+@import "../settings";
+
+
+@mixin lineSmall($attribute, $color) {
+    $attribute: 1px solid $color;
+}
+
+
+
+// .line-small-black{
+//     height: 1px;
+//     width: 100%;
+//     background: $black;
+// }
+
+// .line-small-gray{
+//     height: 1px;
+//     width: 100%;
+//     background: $darkGray;
+// }
+
+// .line-big-black{
+//     height: 3px;
+//     width: 100%;
+//     background: $black;
+// }
+
+// .line-big-white{
+//     height: 3px;
+//     width: 100%;
+//     background: $white;
+// }
