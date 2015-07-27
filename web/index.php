@@ -12,8 +12,6 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => 'php://stderr',
 ));
 
-// Our web handlers
-
 $app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', function($desired_image_width, $desired_image_height, $custom_value) use($app) {
 
     $public_folder = 'public';
@@ -26,7 +24,7 @@ $app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', functi
     $finder->files()->in($public_folder);
 
     $rand_key = rand(0, $finder->count()-1);
-    
+
     $i = 0;
     $element = null;
     foreach($finder as $file) {
