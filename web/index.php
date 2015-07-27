@@ -2,6 +2,8 @@
 
 require('../vendor/autoload.php');
 
+use Symfony\Component\Finder\Finder;
+
 $app = new Silex\Application();
 $app['debug'] = true;
 
@@ -14,15 +16,27 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 
 $app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', function($desired_image_width, $desired_image_height, $custom_value) use($app) {
 
-    /**sostituire con Finder di symfony **/
-    $folder = '';
+    $public_folder = 'public';
+    $finder = new Finder();
 
     if($custom_value == 'mani') {
-        $folder = 'mani/';
+        $finder->name('*_mani.jpg');
     }
 
-    $source_path = 'public/'.$folder.rand(1, 4).'.jpg';
-    /**sostituire con Finder di symfony **/
+    $finder->files()->in($public_folder);
+
+    $rand_key = rand(0, $finder->count()-1);
+    
+    $i = 0;
+    $element = null;
+    foreach($finder as $file) {
+        if($i == $rand_key) {
+            $element = $file;
+        }
+        $i++;
+    }
+
+    $source_path = $element->getRealpath();
 
     /*
      * Add file validation code here
