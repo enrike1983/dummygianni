@@ -9,6 +9,23 @@ var gulp = require('gulp'),
 
 
 
+
+/**
+ * Copy files from assets/img into web/public/img
+ */
+gulp.task('img', function() {
+    return gulp.src(['assets/img/**/*'])
+        .pipe(gulp.dest('web/public/img'));
+});
+
+/**
+ * Copy files from assets/img into web/public/img
+ */
+gulp.task('img:dummy', function() {
+    return gulp.src(['assets/dummy-img/**/*'])
+        .pipe(gulp.dest('web/public/dummy-img'));
+});
+
 /**
  * Compile files from assets/scss into web/public/css
  */
@@ -38,7 +55,8 @@ gulp.task('js', function(){
  */
 gulp.task('js:vendor', function(){
     return gulp.src([
-            'assets/vendor/angular/angular.min.js'
+            'assets/vendor/angular/angular.min.js',
+            'assets/vendor/salvattore/dist/salvattore.min.js'
         ])
         .pipe(concat('vendor.min.js'))
         //.pipe(uglify())
@@ -53,9 +71,7 @@ gulp.task('watch', function () {
     gulp.watch('assets/js/**/*.js', ['js']);
 });
 
-
 /**
  * Default task, running just `gulp` will compile the assets and compile the jekyll site
  */
-
-gulp.task('default', ['sass', 'js' , 'js:vendor']);
+gulp.task('default', ['sass', 'js' , 'js:vendor', 'img', 'img:dummy']);
