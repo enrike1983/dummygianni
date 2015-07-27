@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Dummy Gianni - Placeholder{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}{% endblock %}
+    {% block head_stylesheets %}
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+    {% endblock %}
+    {% block head_javascripts %}
+        <script src="/js/modernizr.dev.js" type="text/javascript" charset="utf-8"></script>
+    {% endblock %}
+</head>
+<body>
+    Header
+    <br>
+    {% block content %}{% endblock %}
+    <br>
+    Footer
+    {% block footer_javascripts %}
+        <script src="/js/vendor.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/main.min.js" type="text/javascript" charset="utf-8"></script>
+    {% endblock %}
+</body>
+</html>
