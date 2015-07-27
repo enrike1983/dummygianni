@@ -7,11 +7,22 @@ use Symfony\Component\Finder\Finder;
 $app = new Silex\Application();
 $app['debug'] = true;
 
-// Register the monolog logging service
+// Register primary services
+
+//Monolog
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => 'php://stderr',
 ));
- 
+
+//Twig
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__.'/../views',
+));
+
+$app->get('/', function () use ($app) {
+    return $app['twig']->render('pages/home.twig');
+});
+
 $app->get('/{desired_image_width}/{desired_image_height}/{custom_value}', function($desired_image_width, $desired_image_height, $custom_value) use($app) {
 
     $public_folder = 'public';
